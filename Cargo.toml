@@ -1,0 +1,11 @@
+[package]
+name = "faasm"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cfg-if = "1"
+
+# Ensures this builds on other architectures too, so clippy works
+[target.'cfg(target_arch="wasm32")'.dependencies]
+faasm-sys = { git="https://github.com/kaimast/faasm-sys.git", branch="no-cpp" }
